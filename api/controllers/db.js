@@ -19,4 +19,4 @@ const client = new Client({
   password: "3fdb5472dd92553935153e186bb26226e436c38b703e2c6d8fe88368c115b98b",
   database: "da3es9bl93d23v",
 });
-module.exports = db
+module.exports = client
