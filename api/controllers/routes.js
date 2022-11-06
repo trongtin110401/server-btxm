@@ -4,7 +4,10 @@
 const express = require('express');
 const userCtrl = require('./usercontroller');
 const loaixecontroller = require('./loaixecontroller');
-const thongtincanhanxe = require('./thongtincanhanxecontroller'); ///
+const thongtincanhanxe = require('./thongtincanhanxecontroller'); 
+
+const chatcontroller = require('./chatcontroller');
+
 const route = express.Router();
 
 //user
@@ -29,6 +32,10 @@ route.get("/xecanhan",thongtincanhanxe.getxecanhan);
 // phieu hen bao tri xe
 
 // phu tung xe
+
+// chat
+route.get("/doanchat",chatcontroller.getallgroudchat);
+route.post("/chat",chatcontroller.getchat)
 module.exports = route;
 
 // module.exports = function(app) {
