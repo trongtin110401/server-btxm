@@ -6,7 +6,7 @@ const route = require('./api/controllers/routes');
 const { request, response } = require('express');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')('ACc14f16981323c79771f9bb1bac7509d9', 'cf72d9d4519ea7dd7df431a3ec8803da');
+const client = require('twilio')('ACc14f16981323c79771f9bb1bac7509d9', 'ed4707d2fcea4329206b8916fa5c0433');
 const app = express();
  
 // Use Node.js body parsing middleware
@@ -35,7 +35,7 @@ function sendTextMessage(){
       .create({
          body: 'Hello ban tui la hieu ngan xau quat' + random1,
          from: '+16294654581',
-         to: '+84942349504'
+         to: '+84397344711'
        })
       .then(message => console.log(message.sid));
       return random1;
