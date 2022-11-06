@@ -33,7 +33,7 @@ function sendTextMessage(){
     var random1 =  Math.floor(Math.random() * (10000 - 1000) + 1000);
     client.messages
       .create({
-         body: 'Hello ban tui la hieu ngan xau quat' + random1,
+         body: 'Hello ban tui la hieu ngan ' + random1,
          from: '+16294654581',
          to: '+84397344711'
        })
