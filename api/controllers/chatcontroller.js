@@ -21,10 +21,19 @@ const chatcontroller = {
         })
     },
     getdoanchat: (req, res) => {
-        let sql = 'SELECT * FROM quanlybaotrixe.doanchat a,quanlybaotrixe.cuahangsuachua b where a.cuahangsuachua_idcuahang=?;'
-        db.query(sql, [req.params.idcuahang], (err, response) => {
+        let data = req.body;
+        let sql = 'SELECT * FROM quanlybaotrixe.doanchat a,quanlybaotrixe.cuahangsuachua b,quanlybaotrixe.user c where  a.cuahangsuachua_idcuahang=b.idcuahang and a.cuahangsuachua_idcuahang=? and a.user_iduser=c.iduser;'
+        db.query(sql, [data.idcuahang], (err, response) => {
             if (err) throw err
-            res.json(response[0])
+            res.send(response)
+        })
+    },
+    getdoanchatuser: (req, res) => {
+        let data = req.body;
+        let sql = 'SELECT * FROM quanlybaotrixe.doanchat a,quanlybaotrixe.cuahangsuachua b where a.cuahangsuachua_idcuahang=b.idcuahang and a.user_iduser=?;'
+        db.query(sql, [data.iduser], (err, response) => {
+            if (err) throw err
+            res.send(response)
         })
     },
 }

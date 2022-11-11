@@ -1,4 +1,5 @@
 const express = require('express');
+http = require('http')
 const port = 3002;
 const bodyParser = require('body-parser');
 const db = require('./api/controllers/db');
@@ -9,6 +10,8 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')('ACc14f16981323c79771f9bb1bac7509d9', 'ed4707d2fcea4329206b8916fa5c0433');
 const app = express();
  
+
+//chat server
 // Use Node.js body parsing middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

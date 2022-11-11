@@ -5,7 +5,7 @@ const express = require('express');
 const userCtrl = require('./usercontroller');
 const loaixecontroller = require('./loaixecontroller');
 const thongtincanhanxe = require('./thongtincanhanxecontroller'); 
-
+const cuahangcontroller = require('./cuahangcontroller');
 const chatcontroller = require('./chatcontroller');
 
 const route = express.Router();
@@ -36,6 +36,14 @@ route.get("/xecanhan",thongtincanhanxe.getxecanhan);
 // chat
 route.get("/doanchat",chatcontroller.getallgroudchat);
 route.post("/chat",chatcontroller.getchat)
+route.post("/doanchat",chatcontroller.getdoanchat);
+route.post("/doanchatuser",chatcontroller.getdoanchatuser);
+
+
+
+// cua hang
+
+route.get("/cuahang",cuahangcontroller.getcuahang);
 module.exports = route;
 
 // module.exports = function(app) {
