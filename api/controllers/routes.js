@@ -7,7 +7,8 @@ const loaixecontroller = require('./loaixecontroller');
 const thongtincanhanxe = require('./thongtincanhanxecontroller'); 
 const cuahangcontroller = require('./cuahangcontroller');
 const chatcontroller = require('./chatcontroller');
-
+const phieuluucontroller = require('./phieuluucontroller')
+const phutungxecontroller = require('./phutungcontrollers'); 
 const route = express.Router();
 
 //user
@@ -23,15 +24,19 @@ route.post("/loaixe",loaixecontroller.postxe);
 
 //thongtincanhanxe
 
-route.get("/xecanhan",thongtincanhanxe.getxecanhan);
+route.post("/xecanhan",thongtincanhanxe.getxecanhan);
+route.post("/xecanhan1",thongtincanhanxe.postxecanhan);
+
 
 
 // phieu luu bao tri xe
-
+route.post("/phieuluu",phieuluucontroller.postphieuluu);
 
 // phieu hen bao tri xe
 
 // phu tung xe
+
+route.get("/phutung",phutungxecontroller.getphutung);
 
 // chat
 route.get("/doanchat",chatcontroller.getallgroudchat);
