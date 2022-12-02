@@ -31,7 +31,7 @@ route.post("/xecanhan1",thongtincanhanxe.postxecanhan);
 
 // phieu luu bao tri xe
 route.post("/phieuluu",phieuluucontroller.postphieuluu);
-
+route.post("/themphieuluu",phieuluucontroller.themphieuluu);
 // phieu hen bao tri xe
 
 // phu tung xe
