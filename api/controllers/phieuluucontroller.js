@@ -8,8 +8,16 @@ const phieuluucontroller = {
     
     postphieuluu: (req, res) => {
         let data = req.body;
-        let sql = 'SELECT * FROM quanlybaotrixe.phieuluuthongtinbaotrixe a Where a.idxe=2 ORDER BY a.idxe DESC LIMIT 1;'
+        let sql = 'SELECT * FROM quanlybaotrixe.phieuluuthongtinbaotrixe a Where a.idxe=?;'
         db.query(sql, [data.idxe], (err, response) => {
+            if (err) throw err
+            res.send(response)
+        })
+    },
+    chitietphieuluu: (req, res) => {
+        let data = req.body;
+        let sql = 'select * from quanlybaotrixe.phieuluuthongtinbaotrixe a,quanlybaotrixe.thongtinxecanhan b,quanlybaotrixe.phieuluuthongtinbaotrixe_has_phutungxe c, quanlybaotrixe.phutungxe d, quanlybaotrixe.cuahangsuachua e where a.idthongtinbaotrixe=c.idphieuluu and a.idcuahang = e.idcuahang and b.idxe = a.idxe and c.phutungxe_idphutungxe = d.idphutungxe and a.idthongtinbaotrixe=?'
+        db.query(sql, [data.idthongtinbaotrixe], (err, response) => {
             if (err) throw err
             res.send(response)
         })
